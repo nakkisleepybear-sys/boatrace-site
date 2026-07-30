@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nakkisleepybear-sys.github.io/boatrace-site/sitemap.xml
