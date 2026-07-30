@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボートレースの結果・AI予想の全記録｜日付から全レース検索</title>
+<meta name="description" content="AIが予想したボートレース全レースの結果を、日付ごとに公開しています。的中も不的中もそのまま残しています。カレンダーから過去の全記録を確認できます。">
+<link rel="canonical" href="https://nakkisleepybear-sys.github.io/boatrace-site/public.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ボートレースの結果・AI予想の全記録｜日付から全レース検索">
+<meta property="og:description" content="AIが予想したボートレース全レースの結果を、日付ごとに公開しています。的中も不的中もそのまま残しています。カレンダーから過去の全記録を確認できます。">
+<meta property="og:url" content="https://nakkisleepybear-sys.github.io/boatrace-site/public.html">
+<meta property="og:image" content="https://nakkisleepybear-sys.github.io/boatrace-site/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a1628; color: #e0e0e0; font-family: sans-serif; min-height: 100vh; }
+
+  .header {
+    background: #0d1e2e;
+    border-bottom: 2px solid #1e3a5f;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  .header h1 { color: #4fc3f7; font-size: 1.0em; margin-bottom: 8px; }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .nav-btn {
+    background: #1e3a5f;
+    border: none;
+    color: #4fc3f7;
+    font-size: 1.6em;
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-btn:disabled { color: #2a4060; background: #0d1e2e; cursor: default; }
+
+  /* 2026-08-01(田中さん指示): 日付をタップするとカレンダーが開く。
+     当初 < > の長押しで実装したが、スマホでは長押しがテキスト選択(コピー)として
+     横取りされて使えなかった。日付タップの方が確実で分かりやすい。 */
+  .date-tap {
+    display: inline-block;
+    color: #4fc3f7; font-size: 0.95em; font-weight: bold;
+    margin-bottom: 6px; padding: 4px 12px;
+    border: 1px solid #2a4a6f; border-radius: 8px;
+    cursor: pointer;
+    -webkit-user-select: none; user-select: none;
+    -webkit-touch-callout: none;   /* 長押しメニューを出さない */
+    -webkit-tap-highlight-color: rgba(79,195,247,.25);
+  }
+  .date-tap:active { background: #16304d; }
+
+  .date-btn {
+    background: #1e3a5f;
+    border: 2px solid #4fc3f7;
+    color: #4fc3f7;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 180px;
+  }
+
+  .mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .mode-btn {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid #1e3a5f;
+    font-size: 0.85em;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .mode-btn.predict { background: #1e3a5f; color: #4fc3f7; }
+  .mode-btn.result  { background: #1a3a1a; color: #81c784; border-color: #2e5f2e; }
+  .mode-btn.active.predict { background: #4fc3f7; color: #0a1628; }
+  .mode-btn.active.result  { background: #81c784; color: #0a1628; }
+  .mode-btn:disabled { opacity: 0.3; cursor: default; }
+
+  /* カレンダーモーダル */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: #0d1e2e;
+    border: 1px solid #1e3a5f;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    max-width: 90vw;
+  }
+  .cal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .cal-header span { color: #4fc3f7; font-weight: bold; font-size: 1em; }
+  .cal-header button {
+    background: #1e3a5f; border: none; color: #4fc3f7;
+    font-size: 1.2em; width: 32px; height: 32px;
+    border-radius: 6px; cursor: pointer;
+  }
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+    text-align: center;
+  }
+  .cal-day-label { color: #888; font-size: 0.75em; padding: 4px 0; }
+  .cal-day {
+    padding: 8px 4px; border-radius: 6px; font-size: 0.9em; cursor: default;
+    color: #444; position: relative;
+  }
+  .cal-day.has-predict {
+    background: #1e3a5f; color: #4fc3f7; cursor: pointer;
+  }
+  .cal-day.has-predict:hover { background: #2a5080; }
+  .cal-day.has-result::after {
+    content: '✓';
+    position: absolute;
+    top: 1px; right: 2px;
+    font-size: 0.55em;
+    color: #81c784;
+  }
+  .cal-day.today { border: 1px solid #4fc3f7; }
+  .cal-day.selected { background: #4fc3f7 !important; color: #0a1628 !important; font-weight: bold; }
+  .cal-close {
+    margin-top: 16px; width: 100%;
+    background: #1e3a5f; border: none; color: #e0e0e0;
+    padding: 10px; border-radius: 8px; cursor: pointer; font-size: 0.9em;
+  }
+
+  .content {
+    padding: 0;
+  }
+  .no-report {
+    color: #888; margin-top: 40px; font-size: 0.95em; text-align: center; padding: 40px;
+  }
+  iframe {
+    width: 100%; height: calc(100vh - 160px);
+    border: none;
+    background: #0a1628;
+  }
+
+  /* 進捗パネル */
+  .progress-panel {
+    background: #0d1e2e;
+    border-bottom: 1px solid #1e3a5f;
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+  .progress-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78em; color: #78909c;
+  }
+  .progress-toggle span { color: #4fc3f7; font-weight: bold; }
+  .progress-body {
+    display: none;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .progress-body.collapsed { display: none !important; }
+  .p-step {
+    background: #0a1628;
+    border: 1px solid #1e3a5f;
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .p-step-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+  .p-step-name { font-size:0.72em; color:#b0bec5; }
+  .p-step-pct { font-size:0.85em; font-weight:bold; }
+  .p-bar-bg { background:#1a2a3a; border-radius:3px; height:5px; overflow:hidden; margin-bottom:3px; }
+  .p-bar { height:100%; border-radius:3px; }
+  .p-detail { font-size:0.68em; color:#546e7a; }
+  .p-dot { display:inline-block; width:6px; height:6px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+  .st-running { background:#ffb74d; animation:ppulse 1.2s infinite; }
+  .st-done    { background:#81c784; }
+  .st-waiting { background:#37474f; }
+  @keyframes ppulse{0%,100%{opacity:1}50%{opacity:0.3}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚤 ボートレースAI予想 — 結果・実績</h1>
+  <div id="header-date" class="date-tap" onclick="openCalendar()"
+       title="タップでカレンダーを開く"></div>
+  <div class="nav">
+    <button class="nav-btn" id="prev-btn" onclick="moveDay(-1)">&#8249;</button>
+    <button class="nav-btn" id="next-btn" onclick="moveDay(1)">&#8250;</button>
+  </div>
+  <div class="mode-toggle">
+    <button class="mode-btn result"  id="btn-result"  onclick="setMode('result')">🏁 結果</button>
+    <button class="mode-btn" style="background:#1b2a1b;color:#a5d6a7;border-color:#2e5c2e;" onclick="window.open('reports/record_public.html','_blank')">📊 実績</button>
+    <button class="mode-btn" style="background:#1565c0;color:#fff;border-color:#1565c0;" onclick="reloadFrameKeepScroll()">🔄</button>
+  </div>
+  <div id="header-meta" style="font-size:0.72em;color:#546e7a;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;">
+    <span id="header-meta-text"></span>
+    <span id="header-clock" style="color:#4fc3f7;font-weight:bold;"></span>
+  </div>
+</div>
+
+
+
+<div class="content" id="content">
+  <iframe id="report-frame" src="" style="display:none"></iframe>
+  <div class="no-report" id="no-report" style="display:none">この日のデータはありません</div>
+</div>
+
+<!-- カレンダーモーダル -->
+<div class="modal-overlay" id="modal" onclick="closeCalendar(event)">
+  <div class="modal">
+    <div class="cal-header">
+      <button onclick="calMove(-1)">&#8249;</button>
+      <span id="cal-title"></span>
+      <button onclick="calMove(1)">&#8250;</button>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <button class="cal-close" onclick="closeCalendar()">閉じる</button>
+  </div>
+</div>
+
+<script>
+const PREDICTS  = ["20260629", "20260630", "20260701", "20260702", "20260703", "20260704", "20260705", "20260706", "20260707", "20260708", "20260709", "20260710", "20260711", "20260712", "20260713", "20260714", "20260715", "20260716", "20260717", "20260718", "20260719", "20260720", "20260721", "20260722", "20260723", "20260724", "20260725", "20260726", "20260727", "20260728", "20260729", "20260730", "20260731", "20260801", "20260802", "20260803", "20260804", "20260805", "20260806", "20260807", "20260808", "20260809"];
+const RESULTS   = ["20260629", "20260630", "20260701", "20260702", "20260703", "20260704", "20260705", "20260706", "20260707", "20260708", "20260709", "20260710", "20260711", "20260712", "20260713", "20260714", "20260715", "20260716", "20260717", "20260718", "20260719", "20260720", "20260721", "20260722", "20260723", "20260724", "20260725", "20260726", "20260727", "20260728", "20260729", "20260730", "20260731", "20260801", "20260802", "20260803", "20260804", "20260805", "20260806", "20260807", "20260808"];
+const OWNER     = false;
+// 2026-08-03 田中さん報告「8月2日の予想が3日の予想に書き換えられている」の対処。
+//
+// 何が起きていたか:
+//   TODAY はページを生成した日を**焼き込んで**いた。田中さんが8/2に開いたページを
+//   8/3も開いたままにしていると TODAY='20260802' のまま。その状態で日付を8/2にすると
+//   下の `current === TODAY` が成立し、**today.html（＝今日=8/3の予想）**を読み込む。
+//   結果、8/2を選んでいるのに8/3の予想が表示され「書き換えられた」ように見えた。
+//   （reports/20260802.html 自体は無傷。表示の取り違えであってデータの破壊ではない）
+//
+// 対処: 生成時の日付ではなく**開いている端末の現在日**で判定する。
+const BUILD_DATE = '20260809';   // このページを生成した日（日付またぎの検知に使う）
+function _todayStr() {
+  const d = new Date();
+  return '' + d.getFullYear()
+       + String(d.getMonth() + 1).padStart(2, '0')
+       + String(d.getDate()).padStart(2, '0');
+}
+// 日付をまたいだら自動でリロードする。TODAY の判定を直すだけでは、
+// PREDICTS/RESULTS（生成時点の一覧）に今日の日付が入っておらず新しい日へ移動できない。
+// ページを開きっぱなしにする使い方（田中さんの実際の使い方）を壊さないために必要。
+setInterval(function () {
+  if (_todayStr() !== BUILD_DATE) location.reload();
+}, 60000);
+const TENTATIVE = ["20260809"];   // R27: 仮予想（展示前）状態の日付
+const PARTIAL   = [];     // R27: 本予想への移行中の日付
+
+// R32(2026-07-10最終版田中さん指示): SNS投稿ごとに参照日付を URL に埋め込む方式
+// ?today=1  → システム日付基準(投稿翌日に見ると別日に飛ぶ問題があったので廃止)
+// ?date=YYYYMMDD → 投稿元の日付を固定表示（推奨・現行）
+// パラメータなし → 田中さんの管理画面（全日程アクセス可）
+const _url_params = new URLSearchParams(location.search);
+const _url_date = _url_params.get('date');
+const IS_LOCKED_DATE = _url_date && /^\d{8}$/.test(_url_date);
+const LOCKED_DATE = IS_LOCKED_DATE ? _url_date : null;
+// 後方互換: 既存の ?today=1 リンクも受け付ける（システム日付基準）
+const IS_TODAY_ONLY = !IS_LOCKED_DATE && _url_params.get('today') === '1';
+const IS_LIMITED = IS_LOCKED_DATE || IS_TODAY_ONLY;  // 制限モード共通フラグ
+
+let mode = 'predict'; // 'predict' | 'result'
+
+function dateStr(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return y + m + day;
+}
+function parseDate(s) {
+  return new Date(s.slice(0,4), s.slice(4,6)-1, s.slice(6,8));
+}
+function fmtDisplay(s) {
+  return s.slice(0,4)+'年'+s.slice(4,6)+'月'+s.slice(6,8)+'日';
+}
+
+// 最新の予想日を初期表示（Brain.md R12: ブラウザ本体の更新(F5等)でも
+// 表示中の日付・モードが消えないよう、sessionStorageから復元する）
+let current = RESULTS.length ? RESULTS[RESULTS.length-1] : dateStr(new Date());
+// R32: 制限モードでは sessionStorage 復元をスキップし、指定日 or システム日付に固定
+if (IS_LOCKED_DATE) {
+  current = LOCKED_DATE;
+} else if (IS_TODAY_ONLY) {
+  current = dateStr(new Date());
+} else {
+  try {
+    const savedMode = sessionStorage.getItem('boatrace_mode');
+    const savedDate = sessionStorage.getItem('boatrace_date');
+    if (savedMode === 'predict' || savedMode === 'result') mode = savedMode;
+    if (savedDate) current = savedDate;
+  } catch (e) {}
+}
+mode = 'result';
+
+function _saveViewState() {
+  try {
+    sessionStorage.setItem('boatrace_mode', mode);
+    sessionStorage.setItem('boatrace_date', current);
+  } catch (e) {}
+}
+
+function setMode(m) {
+  mode = m;
+  const pb = document.getElementById('btn-predict');
+  if (pb) pb.classList.toggle('active', m === 'predict');
+  document.getElementById('btn-result').classList.toggle('active', m === 'result');
+  _saveViewState();
+  render();
+}
+
+function render() {
+  const list = mode === 'predict' ? PREDICTS : RESULTS;
+  const hasReport = list.includes(current);
+
+  // ヘッダーに日付を表示（R27: 仮/移行中/本予想のバッジを併記）
+  const hd = document.getElementById('header-date');
+  if (hd) {
+    let phaseBadge = '';
+    if (mode === 'predict') {
+      if (TENTATIVE.includes(current)) {
+        phaseBadge = ' <span style="background:#8b6914;color:#fff8dc;padding:2px 8px;border-radius:10px;font-size:0.72em;font-weight:bold;margin-left:6px;">⚠️ 仮予想</span>';
+      } else if (PARTIAL.includes(current)) {
+        phaseBadge = ' <span style="background:#1a3a5c;color:#90caf9;padding:2px 8px;border-radius:10px;font-size:0.72em;font-weight:bold;margin-left:6px;">🔄 移行中</span>';
+      } else if (PREDICTS.includes(current)) {
+        phaseBadge = ' <span style="background:#0d3d1f;color:#a5d6a7;padding:2px 8px;border-radius:10px;font-size:0.72em;font-weight:bold;margin-left:6px;">✅ 本予想</span>';
+      }
+    }
+    hd.innerHTML = fmtDisplay(current) + phaseBadge;
+  }
+
+  // 予想・結果ボタンの有効/無効
+  document.getElementById('btn-result').disabled  = !RESULTS.includes(current);
+
+  // 前後ボタン（RESULTSリストで移動）
+  const sorted = RESULTS.slice().sort();
+  const prevDate = sorted.filter(d => d < current).pop();
+  const nextDate = sorted.filter(d => d > current).shift();
+  document.getElementById('prev-btn').disabled = !prevDate;
+  document.getElementById('next-btn').disabled = !nextDate;
+
+  if (hasReport) {
+    let path;
+    if (mode === 'predict') {
+      // 田中さん専用(owner)は当日の予想を today.html から読む。
+      // 過去日の予想HTMLは公開していない(有料化に備えた方針)ため当日のみ。
+      // TODAY（生成時の日付）ではなく **端末の現在日** で判定する。
+      // 焼き込んだ日付で比べると、ページを開いたまま日付をまたいだとき
+      // 「昨日」を選んでいるのに today.html（＝今日の予想）を読んでしまう。
+      path = (OWNER && current === _todayStr()) ? 'today.html' : 'reports/' + current + '.html';
+    } else {
+      path = 'reports/result_' + current + '.html';
+    }
+    // 2026-08-01(田中さん報告「PCではなってるけどスマホでは0のまま」):
+    // GitHub Pages は cache-control: max-age=600 を返すため、ブラウザが最大10分
+    // 古いページを表示し続ける。サーバー側は最新でも端末には届かない。
+    // ヘッダは変更できないので、URLに3分単位の値を付けて実質3分でキャッシュを切る。
+    // （毎秒変えるとページが8MBあるため通信量が無駄になる。更新周期と揃える）
+    const _cb = Math.floor(Date.now() / 180000);
+    document.getElementById('report-frame').src =
+      path + (path.indexOf('?') >= 0 ? '&' : '?') + 'v=' + _cb;
+    document.getElementById('report-frame').style.display = 'block';
+    document.getElementById('no-report').style.display = 'none';
+  } else {
+    document.getElementById('report-frame').style.display = 'none';
+    document.getElementById('no-report').style.display = 'block';
+  }
+}
+
+// 🔄更新ボタン: iframe内のスクロール位置を保持したまま再読み込みする
+// (Brain.md R12: 更新のたびにトップへ戻る不具合の恒久対策・2026-07-06)
+function reloadFrameKeepScroll() {
+  const frame = document.getElementById('report-frame');
+  let savedScroll = 0;
+  try {
+    savedScroll = frame.contentWindow.scrollY || frame.contentWindow.pageYOffset || 0;
+  } catch (e) { /* クロスオリジン等で読めない場合は0のまま */ }
+  const restore = () => {
+    try { frame.contentWindow.scrollTo(0, savedScroll); } catch (e) { /* noop */ }
+    frame.removeEventListener('load', restore);
+  };
+  frame.addEventListener('load', restore);
+  // 同じURLを再代入するとブラウザはキャッシュを使い、更新されないことがある。
+  // 押した瞬間の時刻を付けて必ず取り直す（🔄は「今すぐ最新にしたい」操作なので）
+  const _u = frame.src.split(/[?&]v=/)[0];
+  frame.src = _u + (_u.indexOf('?') >= 0 ? '&' : '?') + 'v=' + Date.now();
+}
+
+function moveDay(dir) {
+  const sorted = RESULTS.slice().sort();
+  if (dir === -1) {
+    const prev = sorted.filter(d => d < current).pop();
+    if (prev) current = prev;
+  } else {
+    const next = sorted.filter(d => d > current).shift();
+    if (next) current = next;
+  }
+  _saveViewState();
+  render();
+}
+
+// カレンダー
+let calYear, calMonth;
+function openCalendar() {
+  const d = parseDate(current);
+  calYear = d.getFullYear();
+  calMonth = d.getMonth();
+  renderCal();
+  document.getElementById('modal').classList.add('show');
+}
+function closeCalendar(e) {
+  if (!e || e.target === document.getElementById('modal')) {
+    document.getElementById('modal').classList.remove('show');
+  }
+}
+function calMove(dir) {
+  calMonth += dir;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCal();
+}
+function renderCal() {
+  document.getElementById('cal-title').textContent = calYear+'年'+(calMonth+1)+'月';
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+  ['日','月','火','水','木','金','土'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-day-label';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+  const first = new Date(calYear, calMonth, 1);
+  const today = dateStr(new Date());
+  for (let i = 0; i < first.getDay(); i++) {
+    grid.appendChild(document.createElement('div'));
+  }
+  const days = new Date(calYear, calMonth+1, 0).getDate();
+  for (let d = 1; d <= days; d++) {
+    const ds = String(calYear)+String(calMonth+1).padStart(2,'0')+String(d).padStart(2,'0');
+    const el = document.createElement('div');
+    el.className = 'cal-day';
+    el.textContent = d;
+    if (RESULTS.includes(ds))  el.classList.add('has-result');
+    if (ds === today) el.classList.add('today');
+    if (ds === current) el.classList.add('selected');
+    // R27: 予想フェーズを右下の小さなマーカーで示す
+    if (TENTATIVE.includes(ds)) {
+      const mark = document.createElement('span');
+      mark.textContent = '⚠️';
+      mark.style.cssText = 'position:absolute;bottom:0;right:2px;font-size:0.55em;';
+      el.appendChild(mark);
+    } else if (PARTIAL.includes(ds)) {
+      const mark = document.createElement('span');
+      mark.textContent = '🔄';
+      mark.style.cssText = 'position:absolute;bottom:0;right:2px;font-size:0.55em;';
+      el.appendChild(mark);
+    }
+    if (RESULTS.includes(ds)) {
+      el.onclick = () => { current = ds; _saveViewState(); render(); closeCalendar(); };
+    }
+    grid.appendChild(el);
+  }
+}
+
+setMode('result');
+render();
+
+// R32: 制限モード(?date=YYYYMMDD or ?today=1)の訪問者には日付ナビ・カレンダー・実績ボタンを
+// 全て非表示にし、指定日 or 当日分のみアクセス可能にする（無料公開範囲の制限）
+if (IS_LIMITED) {
+  document.getElementById('prev-btn').style.display = 'none';
+  document.getElementById('next-btn').style.display = 'none';
+  const buttons = document.querySelectorAll('.mode-btn');
+  buttons.forEach(function(b) {
+    if (b.textContent.includes('実績')) {
+      b.style.display = 'none';
+    }
+  });
+  const modal = document.getElementById('modal');
+  if (modal) modal.style.display = 'none';
+  window.openCalendar = function() {};
+  const banner = document.createElement('div');
+  banner.style.cssText = 'background:#1565c0;color:#fff;text-align:center;padding:6px;font-size:0.85em;font-weight:bold;';
+  // 日付固定モードなら日付を明示、システム日付基準ならシンプルに
+  const bannerDate = IS_LOCKED_DATE
+    ? LOCKED_DATE.slice(0,4) + '/' + LOCKED_DATE.slice(4,6) + '/' + LOCKED_DATE.slice(6,8)
+    : '本日';
+  banner.textContent = '⏱ ' + bannerDate + ' 限定表示 — 他の日の予想は非公開です';
+  document.body.insertBefore(banner, document.body.firstChild);
+}
+
+function toggleProgress() {
+  const body = document.getElementById('progress-body');
+  const arrow = document.getElementById('prog-arrow');
+  if (!body) return;
+  body.classList.toggle('collapsed');
+  arrow.textContent = body.classList.contains('collapsed') ? '▼ 詳細' : '▲ 閉じる';
+}
+
+function updateEtaCountdowns() {
+  document.querySelectorAll('.p-eta[data-eta]').forEach(function(el) {
+    var iso = el.getAttribute('data-eta');
+    if (!iso) return;
+    var eta = new Date(iso);
+    var now = new Date();
+    var diff = Math.floor((eta - now) / 1000);
+    if (diff <= 0) {
+      el.textContent = '⏱ まもなく完了';
+      return;
+    }
+    var h = Math.floor(diff / 3600);
+    var m = Math.floor((diff % 3600) / 60);
+    if (h > 0) {
+      el.textContent = '⏱ あと約' + h + '時間' + m + '分';
+    } else {
+      el.textContent = '⏱ あと約' + m + '分';
+    }
+  });
+}
+
+updateEtaCountdowns();
+setInterval(updateEtaCountdowns, 30000);
+
+// レポートからメタ情報を受信してヘッダーに表示
+window.addEventListener('message', function(e) {
+  if (!e.data || e.data.type !== 'boatrace-meta') return;
+  var el = document.getElementById('header-meta');
+  if (!el) return;
+  var t = document.getElementById('header-meta-text');
+  // 2026-07-26(田中さん要望): 更新タイミングが分からない問題。生成時刻を保持して
+  // 「○分前・次回更新まで約○分」を毎秒表示する
+  var m = String(e.data.generated || '').match(/(\d+)年(\d+)月(\d+)日\s*(\d+):(\d+)/);
+  window._genTime = m ? new Date(+m[1], +m[2]-1, +m[3], +m[4], +m[5]) : null;
+  window._metaBase = '生成: ' + e.data.generated + ' | LightGBM | 学習: ' + e.data.trainRows + 'レース';
+  if (t) t.textContent = window._metaBase;
+});
+
+// リアルタイム時計 ＋ 更新カウントダウン
+(function() {
+  var UPDATE_MIN = 17;  // 実測の再生成間隔(分)。生成自体に約10分かかるため16-17分周期
+  var clockEl = null, metaEl = null;
+  function updateClock() {
+    if (!clockEl) clockEl = document.getElementById('header-clock');
+    if (clockEl) {
+      var n = new Date();
+      clockEl.textContent = String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0') + ':' + String(n.getSeconds()).padStart(2,'0');
+    }
+    if (!metaEl) metaEl = document.getElementById('header-meta-text');
+    if (metaEl && window._genTime && window._metaBase) {
+      var el = Math.floor((Date.now() - window._genTime.getTime()) / 60000);
+      if (el < 0) el = 0;
+      var rem = UPDATE_MIN - el;
+      var badge = rem > 0 ? ('⏳次の更新まで約' + rem + '分') : '🔄まもなく更新';
+      metaEl.textContent = window._metaBase + ' ｜ ' + el + '分前 ｜ ' + badge;
+    }
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+})();
+
+// iframe高さをヘッダー実測値から動的計算
+// 2026-07-26: CSSのcalc(100vh - 160px)がヘッダー実測209pxとズレ、親ページが49px
+// スクロールしてしまい、iframe内のposition:fixed(TOPボタン)が画面外へずれていた。
+(function() {
+  function fitFrame() {
+    var hdr = document.querySelector('.header');
+    var ifr = document.getElementById('report-frame');
+    if (hdr && ifr && hdr.offsetHeight > 0) {
+      ifr.style.height = Math.max(240, window.innerHeight - hdr.offsetHeight) + 'px';
+    }
+  }
+  window.addEventListener('resize', fitFrame);
+  window.addEventListener('load', fitFrame);
+  setInterval(fitFrame, 2000);
+  fitFrame();
+})();
+</script>
+</body>
+</html>
