@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script>(function(){var m=location.hash.match(/k=([A-Za-z0-9_-]+)/);if(m){try{localStorage.setItem('k:owner',m[1]);}catch(e){}}})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJCJQE1C4"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RSJCJQE1C4');</script>
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJCJQE1C4"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RSJCJQE1C4');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ボートレースAI予想</title>
@@ -434,8 +434,8 @@ function render() {
     if (mode === 'predict') {
       // 2026-08-29: today.html は**無料版（上位3点）**になったので、そこは読まない。
       // 日別の予想は推測できないフォルダに移した（deploy_site.py の owner_dir）。
-      // フォルダ名はデプロイ時に dd37384c730b8de6 が置換される。
-      path = 'reports/dd37384c730b8de6/' + current + '.html';
+      // フォルダ名はデプロイ時に __OWNER_PRED_DIR__ が置換される。
+      path = 'reports/__OWNER_PRED_DIR__/' + current + '.html';
     } else {
       path = 'reports/result_' + current + '.html';
     }
