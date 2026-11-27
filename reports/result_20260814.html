@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボートレース予想の結果 2026年08月14日｜全192レースをAIが予想・結果公開</title>
+<meta name="description" content="2026年08月14日のボートレース全192レースをAIが3連単で予想した結果です。的中率45.3%（87/192・12レースあたり5.4本）、回収率101.1%。的中も不的中もすべて公開しています。">
+<link rel="canonical" href="https://nakkisleepybear-sys.github.io/boatrace-site/reports/result_20260814.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ボートレース予想の結果 2026年08月14日｜全192レースをAIが予想・結果公開">
+<meta property="og:description" content="2026年08月14日のボートレース全192レースをAIが3連単で予想した結果です。的中率45.3%（87/192・12レースあたり5.4本）、回収率101.1%。的中も不的中もすべて公開しています。">
+<meta property="og:url" content="https://nakkisleepybear-sys.github.io/boatrace-site/reports/result_20260814.html">
+<meta property="og:image" content="https://nakkisleepybear-sys.github.io/boatrace-site/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset",
+ "name":"ボートレース予想の結果 2026年08月14日｜全192レースをAIが予想・結果公開","description":"2026年08月14日のボートレース全192レースをAIが3連単で予想した結果です。的中率45.3%（87/192・12レースあたり5.4本）、回収率101.1%。的中も不的中もすべて公開しています。","url":"https://nakkisleepybear-sys.github.io/boatrace-site/reports/result_20260814.html",
+ "creator":{"@type":"Organization","name":"完全AIボートレース最強予想師-柚"},
+ "temporalCoverage":"2026-08-14","license":"https://nakkisleepybear-sys.github.io/boatrace-site/"}
+</script>
+<style>
+body{background:#1a1a2e;color:#e0e0e0;font-family:'Hiragino Sans',sans-serif;padding:20px;margin:0}
+h1{color:#80cbc4;font-size:1.4em;border-bottom:2px solid #37474f;padding-bottom:8px}
+h2{color:#b0bec5;font-size:1.1em;margin-top:24px}
+.summary{display:flex;gap:20px;margin:16px 0;flex-wrap:wrap}
+.card{background:#263238;border-radius:8px;padding:16px 24px;min-width:160px}
+.card .label{font-size:0.85em;color:#78909c}
+.card .value{font-size:2em;font-weight:bold;margin:4px 0}
+.card .roi{font-size:1em;color:#80cbc4}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:0.9em}
+th{background:#37474f;padding:8px 10px;text-align:center}
+td{padding:6px 10px;border-bottom:1px solid #2d3748;text-align:center}
+tr:hover td{background:#263238}
+.hit-row td{background:#1b3a2a}
+.hit-chuana-row td{background:#2a3020}
+.hit-oana-row td{background:#2a1a2e}
+.hanamaru{font-size:1.3em;animation:pop 0.3s ease}
+.hanamaru-big{font-size:1.6em}
+.batsu{color:#ef5350;font-size:1.1em}
+/* 2026-08-11: 点数の切替バー（予想ページと同じ見た目・同じ操作にする） */
+/* 2026-08-13（田中さん「下にスクロールした時も点数を選べるようタブ固定して」）:
+   スマホでもPCでも、表を見ながら点数を切り替えられるように上部へ貼り付ける。 */
+.pts-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#20293a;
+  border:1px solid #2a3a50;border-radius:8px;padding:8px 10px;margin:14px 0;
+  position:sticky;top:0;z-index:50;box-shadow:0 4px 12px rgba(0,0,0,.45)}
+@media (max-width:480px){
+  /* スマホは1行のまま横スクロール。折り返すとバーが画面の2割（148px）を占めて
+     表が見えなくなるため（実測して修正）。 */
+  .pts-bar{gap:4px;padding:6px 8px;margin:10px -12px;border-radius:0;
+    border-left:0;border-right:0;flex-wrap:nowrap;overflow-x:auto;
+    -webkit-overflow-scrolling:touch}
+  .pts-bar .pts-btn{padding:5px 10px;font-size:0.78em;flex:0 0 auto;white-space:nowrap}
+  .pts-bar .pts-btn .pts-sub{display:none}   /* 説明は省く。押せば数字で分かる */
+  .pts-bar .pts-label{flex:0 0 auto;white-space:nowrap}
+  .pts-bar #pts-note{display:none}
+}
+.pts-bar .pts-label{color:#78909c;font-size:0.78em;margin-right:2px}
+.pts-btn{background:#1e2a3a;color:#90caf9;border:1px solid #2a3a50;border-radius:8px;
+  padding:6px 12px;font-size:0.86em;cursor:pointer;line-height:1.25;text-align:center}
+.pts-btn:hover{background:#263a50}
+.pts-btn.active{background:#00897b;color:#fff;border-color:#00897b;font-weight:bold}
+.pts-btn .pts-sub{display:block;font-size:0.72em;color:#78909c;font-weight:normal;margin-top:1px}
+.pts-btn.active .pts-sub{color:#b2dfdb}
+tr.pts-na td{opacity:0.35}
+/* 2026-07-27: 全レース詳細を9列化。行間を広げ、スマホでは横スクロールで全列見せる */
+.tbl-note{color:#78909c;font-size:0.8em;margin:4px 0 0}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.card.tier{border:1px solid #37474f}
+.tier-badge{font-size:0.72em;padding:2px 6px;border-radius:10px;white-space:nowrap}
+.tier-s{background:#4e342e;color:#ffab91}
+.tier-a{background:#00363a;color:#80deea}
+.tier-m{background:#0d2818;color:#a5f3c4}
+.tier-o{background:#2a0f14;color:#ffabab}
+table.detail{min-width:720px}
+table.detail th{padding:10px 8px;white-space:nowrap}
+table.detail td{padding:11px 8px;white-space:nowrap;line-height:1.5}
+@media (max-width:480px){
+  body{padding:12px}
+  table.detail{font-size:0.82em}
+  table.detail th,table.detail td{padding:9px 6px}
+}
+@keyframes pop{0%{transform:scale(0.5)}100%{transform:scale(1)}}
+</style></head><body>
+<h1>🤖 ボートレース AI予想 デイリーレポート　2026/08/14</h1>
+<p style="color:#78909c">対象: 192レース</p>
+
+<div class="pts-bar"><span class="pts-label">📋 結果を見る</span><button class="pts-btn" data-pts="0">AIおすすめ<span class="pts-sub">AIが決めた点数</span></button><button class="pts-btn" data-pts="8">8点<span class="pts-sub">回収率 最高</span></button><button class="pts-btn" data-pts="14">14点<span class="pts-sub">バランス</span></button><button class="pts-btn" data-pts="20">20点<span class="pts-sub">的中と両立</span></button><button class="pts-btn" data-pts="32">32点<span class="pts-sub">的中率 最高</span></button><span class="pts-label" id="pts-note" style="margin-left:8px"></span></div>
+<div class="summary">
+  <div class="card">
+    <div class="label">🌸 本命的中率</div>
+    <div class="value" style="color:#ffe082" id="card-honmei">45.3%</div>
+    <div class="roi" id="card-honmei-sub">87/192R</div>
+  </div>
+  <div class="card">
+    <div class="label">💥 中穴的中率</div>
+    <div class="value" style="color:#ffb74d" id="card-chuana">16.1%</div>
+    <div class="roi" id="card-chuana-sub">31/192R</div>
+  </div>
+  <div class="card">
+    <div class="label">🚀 大穴的中率</div>
+    <div class="value" style="color:#ef9a9a" id="card-oana">15.1%</div>
+    <div class="roi" id="card-oana-sub">29/192R</div>
+  </div>
+  <div class="card">
+    <div class="label" id="sum-hit-label">合計的中率</div>
+    <div class="value" style="color:#81c784" id="sum-hit">45.3%</div>
+    <div class="roi" id="sum-hit-sub">87/192R</div>
+  </div>
+  <div class="card">
+    <div class="label">3連単 回収率</div>
+    <div class="value" style="color:#4caf50" id="sum-roi">101.1%</div>
+    <div class="roi" id="sum-roi-sub">¥155,320 / ¥153,600</div>
+    <div class="roi" style="font-size:0.8em;color:#607d8b" id="sum-roi-note">全レース・配分買い</div>
+  </div>
+  <div class="card tier">
+    <div class="label" style="color:#4dd0e1">🎯 厳選 回収率</div>
+    <div class="value" style="color:#ff9800">83.0%</div>
+    <div class="roi">¥41,180 / ¥49,600</div>
+    <div class="roi">62R ｜ 的中 33/62 = 53%</div>
+    <div class="roi" style="font-size:0.8em;color:#607d8b">本命確信度40%以上×堅い場</div>
+  </div>
+  <div class="card tier">
+    <div class="label" style="color:#69f0ae">📈 妙味帯 回収率</div>
+    <div class="value" style="color:#4caf50">111.0%</div>
+    <div class="roi">¥49,720 / ¥44,800</div>
+    <div class="roi">56R ｜ 的中 20/56 = 36%</div>
+    <div class="roi" style="font-size:0.8em;color:#607d8b">本命1着確率35〜55%</div>
+  </div>
+  <div class="card tier">
+    <div class="label" style="color:#ff5252">💣 大穴勝負 回収率</div>
+    <div class="value" style="color:#ff9800">71.3%</div>
+    <div class="roi">¥7,420 / ¥10,400</div>
+    <div class="roi">13R ｜ 的中 3/13 = 23%</div>
+    <div class="roi" style="font-size:0.8em;color:#607d8b">イン不安度1.7以上</div>
+  </div>
+</div>
+<p class="tbl-note">※「厳選」「超厳選」は買い目を減らすものではありません（全レース32点は変わりません）。
+AIが「合成オッズ的にガミにくく、かつ確度が高い」と判定したレースだけを抜き出した成績です。</p>
+
+
+<h2>点数別の成績</h2>
+<p class="tbl-note">※予想ページの「📋 予想を見る」で選べる点数を、その日の実際の結果でそのまま採点したものです。
+上位何点まで買ったか以外は同じ予想で、金額は点数ごとの資金配分どおりに計算しています。
+👑 はその日いちばん回収率が高かった点数。</p>
+<table>
+  <tr><th>点数</th><th>的中率</th><th>回収率</th><th>収支</th><th>払戻 / 投資</th>
+      <th>1Rあたり投資</th><th>トリガミ率</th></tr>
+  
+  <tr>
+    <td style="font-weight:bold">8点 👑<br><span style="color:#78909c;font-size:0.8em">回収率 最高</span></td>
+    <td>87/192 = <b>45.3%</b><br><span style="color:#78909c;font-size:0.8em">12Rあたり 5.4本</span></td>
+    <td style="color:#4caf50;font-weight:bold">101.1%</td>
+    <td style="color:#4caf50">+1,720円</td>
+    <td>¥155,320 / ¥153,600</td>
+    <td>¥800</td>
+    <td>30%<br><span style="color:#78909c;font-size:0.8em">26/87本</span></td>
+  </tr>
+  <tr>
+    <td style="font-weight:bold">14点<br><span style="color:#78909c;font-size:0.8em">バランス</span></td>
+    <td>110/192 = <b>57.3%</b><br><span style="color:#78909c;font-size:0.8em">12Rあたり 6.9本</span></td>
+    <td style="color:#ff9800;font-weight:bold">80.4%</td>
+    <td style="color:#ef5350">-56,350円</td>
+    <td>¥231,650 / ¥288,000</td>
+    <td>¥1,500</td>
+    <td>50%<br><span style="color:#78909c;font-size:0.8em">55/110本</span></td>
+  </tr>
+  <tr>
+    <td style="font-weight:bold">20点<br><span style="color:#78909c;font-size:0.8em">的中と両立</span></td>
+    <td>130/192 = <b>67.7%</b><br><span style="color:#78909c;font-size:0.8em">12Rあたり 8.1本</span></td>
+    <td style="color:#ff9800;font-weight:bold">75.1%</td>
+    <td style="color:#ef5350">-114,540円</td>
+    <td>¥346,260 / ¥460,800</td>
+    <td>¥2,400</td>
+    <td>58%<br><span style="color:#78909c;font-size:0.8em">76/130本</span></td>
+  </tr>
+  <tr>
+    <td style="font-weight:bold">32点<br><span style="color:#78909c;font-size:0.8em">的中率 最高</span></td>
+    <td>147/192 = <b>76.6%</b><br><span style="color:#78909c;font-size:0.8em">12Rあたり 9.2本</span></td>
+    <td style="color:#ff9800;font-weight:bold">79.2%</td>
+    <td style="color:#ef5350">-175,910円</td>
+    <td>¥668,890 / ¥844,800</td>
+    <td>¥4,400</td>
+    <td>70%<br><span style="color:#78909c;font-size:0.8em">103/147本</span></td>
+  </tr>
+</table>
+
+<h2>場別成績</h2>
+<table>
+  <tr><th>場</th><th>R数</th><th>3連単的中率</th><th>3連単回収率</th></tr>
+  <tr data-venue="1" data-v0="12|5|9600|20100" data-v8="12|5|9600|20100" data-v14="12|7|18000|26380" data-v20="12|8|28800|31730" data-v32="12|10|52800|104520">
+          <td>桐生</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#4caf50">209.4%</td>
+        </tr><tr data-venue="1" data-v0="12|3|9600|6170" data-v8="12|3|9600|6170" data-v14="12|4|18000|8290" data-v20="12|5|28800|17800" data-v32="12|6|52800|30660">
+          <td>戸田</td><td class="v-n">12R</td>
+          <td class="v-hit">3/12 = 25.0%</td>
+          <td class="v-roi" style="color:#ef5350">64.3%</td>
+        </tr><tr data-venue="1" data-v0="12|4|9600|12370" data-v8="12|4|9600|12370" data-v14="12|5|18000|15600" data-v20="12|6|28800|19600" data-v32="12|8|52800|55070">
+          <td>江戸川</td><td class="v-n">12R</td>
+          <td class="v-hit">4/12 = 33.3%</td>
+          <td class="v-roi" style="color:#4caf50">128.9%</td>
+        </tr><tr data-venue="1" data-v0="12|7|9600|15140" data-v8="12|7|9600|15140" data-v14="12|8|18000|18760" data-v20="12|9|28800|30300" data-v32="12|10|52800|49760">
+          <td>平和島</td><td class="v-n">12R</td>
+          <td class="v-hit">7/12 = 58.3%</td>
+          <td class="v-roi" style="color:#4caf50">157.7%</td>
+        </tr><tr data-venue="1" data-v0="12|8|9600|12560" data-v8="12|8|9600|12560" data-v14="12|8|18000|12560" data-v20="12|8|28800|18750" data-v32="12|8|52800|29010">
+          <td>浜名湖</td><td class="v-n">12R</td>
+          <td class="v-hit">8/12 = 66.7%</td>
+          <td class="v-roi" style="color:#4caf50">130.8%</td>
+        </tr><tr data-venue="1" data-v0="12|5|9600|7930" data-v8="12|5|9600|7930" data-v14="12|9|18000|20270" data-v20="12|10|28800|23530" data-v32="12|11|52800|32540">
+          <td>蒲郡</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#ff9800">82.6%</td>
+        </tr><tr data-venue="1" data-v0="12|4|9600|5010" data-v8="12|4|9600|5010" data-v14="12|5|18000|10840" data-v20="12|5|28800|10840" data-v32="12|5|52800|16300">
+          <td>常滑</td><td class="v-n">12R</td>
+          <td class="v-hit">4/12 = 33.3%</td>
+          <td class="v-roi" style="color:#ef5350">52.2%</td>
+        </tr><tr data-venue="1" data-v0="12|6|9600|7310" data-v8="12|6|9600|7310" data-v14="12|7|18000|12630" data-v20="12|7|28800|16930" data-v32="12|7|52800|26550">
+          <td>三国</td><td class="v-n">12R</td>
+          <td class="v-hit">6/12 = 50.0%</td>
+          <td class="v-roi" style="color:#ff9800">76.1%</td>
+        </tr><tr data-venue="1" data-v0="12|4|9600|3050" data-v8="12|4|9600|3050" data-v14="12|4|18000|4350" data-v20="12|6|28800|7720" data-v32="12|8|52800|24020">
+          <td>住之江</td><td class="v-n">12R</td>
+          <td class="v-hit">4/12 = 33.3%</td>
+          <td class="v-roi" style="color:#ef5350">31.8%</td>
+        </tr><tr data-venue="1" data-v0="12|8|9600|9230" data-v8="12|8|9600|9230" data-v14="12|10|18000|25380" data-v20="12|12|28800|45720" data-v32="12|12|52800|56680">
+          <td>尼崎</td><td class="v-n">12R</td>
+          <td class="v-hit">8/12 = 66.7%</td>
+          <td class="v-roi" style="color:#ff9800">96.1%</td>
+        </tr><tr data-venue="1" data-v0="12|5|9600|14060" data-v8="12|5|9600|14060" data-v14="12|6|18000|15560" data-v20="12|7|28800|19230" data-v32="12|9|52800|36600">
+          <td>宮島</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#4caf50">146.5%</td>
+        </tr><tr data-venue="1" data-v0="12|6|9600|7580" data-v8="12|6|9600|7580" data-v14="12|8|18000|12910" data-v20="12|10|28800|27320" data-v32="12|11|52800|37500">
+          <td>下関</td><td class="v-n">12R</td>
+          <td class="v-hit">6/12 = 50.0%</td>
+          <td class="v-roi" style="color:#ff9800">79.0%</td>
+        </tr><tr data-venue="1" data-v0="12|7|9600|12710" data-v8="12|7|9600|12710" data-v14="12|8|18000|13620" data-v20="12|8|28800|16860" data-v32="12|10|52800|79970">
+          <td>芦屋</td><td class="v-n">12R</td>
+          <td class="v-hit">7/12 = 58.3%</td>
+          <td class="v-roi" style="color:#4caf50">132.4%</td>
+        </tr><tr data-venue="1" data-v0="12|5|9600|5510" data-v8="12|5|9600|5510" data-v14="12|8|18000|12520" data-v20="12|9|28800|18810" data-v32="12|11|52800|25430">
+          <td>福岡</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#ef5350">57.4%</td>
+        </tr><tr data-venue="1" data-v0="12|5|9600|10000" data-v8="12|5|9600|10000" data-v14="12|6|18000|11940" data-v20="12|8|28800|20490" data-v32="12|9|52800|36130">
+          <td>唐津</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#4caf50">104.2%</td>
+        </tr><tr data-venue="1" data-v0="12|5|9600|6590" data-v8="12|5|9600|6590" data-v14="12|7|18000|10040" data-v20="12|12|28800|20630" data-v32="12|12|52800|28150">
+          <td>大村</td><td class="v-n">12R</td>
+          <td class="v-hit">5/12 = 41.7%</td>
+          <td class="v-roi" style="color:#ef5350">68.6%</td>
+        </tr>
+</table>
+<h2>全レース詳細</h2>
+<p class="tbl-note">※掛金・配分・回収金額はオッズ配分（1/オッズ^1.5・100円単位）で買った場合の金額です。スマホは表を横にスクロールできます。</p>
+<div class="tbl-scroll">
+<table class="detail">
+  <tr><th>場</th><th>R</th><th>結果</th><th>オッズ</th><th>的中</th>
+      <th>レース掛金</th><th>配分</th><th>回収金額</th><th>回収率</th><th>枠</th></tr>
+  <tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|3080|70">
+          <td>桐生</td><td>1R</td>
+          <td>453</td>
+          <td style="font-weight:bold"><span style="color:#78909c">30.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>桐生</td><td>2R</td>
+          <td>341</td>
+          <td style="font-weight:bold"><span style="color:#78909c">86.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>桐生</td><td>3R</td>
+          <td>345</td>
+          <td style="font-weight:bold"><span style="color:#78909c">28.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|4290|286" data-p20="1|2400|100|4290|179" data-p32="1|4400|100|4290|98">
+          <td>桐生</td><td>4R</td>
+          <td>246</td>
+          <td style="font-weight:bold"><span style="color:#78909c">42.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1340|89" data-p20="1|2400|100|1340|56" data-p32="1|4400|100|1340|30">
+          <td>桐生</td><td>5R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">13.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|870|109" data-p8="1|800|100|870|109" data-p14="1|1500|100|870|58" data-p20="1|2400|200|1740|72" data-p32="1|4400|300|2610|59">
+          <td>桐生</td><td>6R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥870</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">109%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|14260|1782" data-p8="1|800|100|14260|1782" data-p14="1|1500|100|14260|951" data-p20="1|2400|100|14260|594" data-p32="1|4400|200|28520|648">
+          <td>桐生</td><td>7R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">142.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥14,260</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">1782%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|52820|1200">
+          <td>桐生</td><td>8R</td>
+          <td>325</td>
+          <td style="font-weight:bold"><span style="color:#78909c">528.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3860|482" data-p8="1|800|100|3860|482" data-p14="1|1500|100|3860|257" data-p20="1|2400|200|7720|322" data-p32="1|4400|200|7720|175">
+          <td>桐生</td><td>9R</td>
+          <td>154</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">38.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,860</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">482%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|650|81" data-p8="1|800|100|650|81" data-p14="1|1500|200|1300|87" data-p20="1|2400|200|1300|54" data-p32="1|4400|400|2600|59">
+          <td>桐生</td><td>10R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥650</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">81%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|460|57" data-p8="1|800|100|460|57" data-p14="1|1500|100|460|31" data-p20="1|2400|100|460|19" data-p32="1|4400|200|920|21">
+          <td>桐生</td><td>11R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">4.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥460</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">57%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|620|26" data-p32="1|4400|100|620|14">
+          <td>桐生</td><td>12R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#78909c">6.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2980|372" data-p8="1|800|100|2980|372" data-p14="1|1500|100|2980|199" data-p20="1|2400|200|5960|248" data-p32="1|4400|300|8940|203">
+          <td>戸田</td><td>1R</td>
+          <td>213</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">29.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,980</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">372%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>2R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">57.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>3R</td>
+          <td>432</td>
+          <td style="font-weight:bold"><span style="color:#78909c">111.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|6170|140">
+          <td>戸田</td><td>4R</td>
+          <td>421</td>
+          <td style="font-weight:bold"><span style="color:#78909c">61.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>5R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">58.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>6R</td>
+          <td>453</td>
+          <td style="font-weight:bold"><span style="color:#78909c">633.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|3860|161" data-p32="1|4400|100|3860|88">
+          <td>戸田</td><td>7R</td>
+          <td>152</td>
+          <td style="font-weight:bold"><span style="color:#78909c">38.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1600|107" data-p20="1|2400|100|1600|67" data-p32="1|4400|100|1600|36">
+          <td>戸田</td><td>8R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">16.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2670|334" data-p8="1|800|100|2670|334" data-p14="1|1500|100|2670|178" data-p20="1|2400|200|5340|222" data-p32="1|4400|300|8010|182">
+          <td>戸田</td><td>9R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">26.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,670</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">334%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>10R</td>
+          <td>521</td>
+          <td style="font-weight:bold"><span style="color:#78909c">32.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|520|65" data-p8="1|800|100|520|65" data-p14="1|1500|200|1040|69" data-p20="1|2400|200|1040|43" data-p32="1|4400|400|2080|47">
+          <td>戸田</td><td>11R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">5.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥520</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">65%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>戸田</td><td>12R</td>
+          <td>362</td>
+          <td style="font-weight:bold"><span style="color:#78909c">264.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2400|300" data-p8="1|800|100|2400|300" data-p14="1|1500|100|2400|160" data-p20="1|2400|100|2400|100" data-p32="1|4400|200|4800|109">
+          <td>江戸川</td><td>1R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">24.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,400</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">300%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|6530|816" data-p8="1|800|100|6530|816" data-p14="1|1500|100|6530|435" data-p20="1|2400|100|6530|272" data-p32="1|4400|200|13060|297">
+          <td>江戸川</td><td>2R</td>
+          <td>163</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">65.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥6,530</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">816%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1510|189" data-p8="1|800|100|1510|189" data-p14="1|1500|100|1510|101" data-p20="1|2400|200|3020|126" data-p32="1|4400|300|4530|103">
+          <td>江戸川</td><td>3R</td>
+          <td>132</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">15.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,510</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">189%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>江戸川</td><td>4R</td>
+          <td>145</td>
+          <td style="font-weight:bold"><span style="color:#78909c">87.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|2490|104" data-p32="1|4400|100|2490|57">
+          <td>江戸川</td><td>5R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">24.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|3230|215" data-p20="1|2400|100|3230|135" data-p32="1|4400|100|3230|73">
+          <td>江戸川</td><td>6R</td>
+          <td>421</td>
+          <td style="font-weight:bold"><span style="color:#78909c">32.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>江戸川</td><td>7R</td>
+          <td>621</td>
+          <td style="font-weight:bold"><span style="color:#78909c">138.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|7830|178">
+          <td>江戸川</td><td>8R</td>
+          <td>216</td>
+          <td style="font-weight:bold"><span style="color:#78909c">78.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>江戸川</td><td>9R</td>
+          <td>431</td>
+          <td style="font-weight:bold"><span style="color:#78909c">445.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1930|241" data-p8="1|800|100|1930|241" data-p14="1|1500|100|1930|129" data-p20="1|2400|100|1930|80" data-p32="1|4400|200|3860|88">
+          <td>江戸川</td><td>10R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">19.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,930</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">241%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|15270|347">
+          <td>江戸川</td><td>11R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">152.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>江戸川</td><td>12R</td>
+          <td>415</td>
+          <td style="font-weight:bold"><span style="color:#78909c">138.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>平和島</td><td>1R</td>
+          <td>536</td>
+          <td style="font-weight:bold"><span style="color:#78909c">608.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>平和島</td><td>2R</td>
+          <td>451</td>
+          <td style="font-weight:bold"><span style="color:#78909c">48.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2660|332" data-p8="1|800|100|2660|332" data-p14="1|1500|100|2660|177" data-p20="1|2400|200|5320|222" data-p32="1|4400|300|7980|181">
+          <td>平和島</td><td>3R</td>
+          <td>231</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">26.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,660</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">332%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2740|342" data-p8="1|800|100|2740|342" data-p14="1|1500|100|2740|183" data-p20="1|2400|100|2740|114" data-p32="1|4400|200|5480|125">
+          <td>平和島</td><td>4R</td>
+          <td>345</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">27.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,740</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">342%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|3540|80">
+          <td>平和島</td><td>5R</td>
+          <td>516</td>
+          <td style="font-weight:bold"><span style="color:#78909c">35.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|780|98" data-p8="1|800|100|780|98" data-p14="1|1500|200|1560|104" data-p20="1|2400|200|1560|65" data-p32="1|4400|400|3120|71">
+          <td>平和島</td><td>6R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥780</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">98%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1000|125" data-p8="1|800|100|1000|125" data-p14="1|1500|100|1000|67" data-p20="1|2400|200|2000|83" data-p32="1|4400|300|3000|68">
+          <td>平和島</td><td>7R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">10.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,000</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">125%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1480|185" data-p8="1|800|100|1480|185" data-p14="1|1500|100|1480|99" data-p20="1|2400|100|1480|62" data-p32="1|4400|200|2960|67">
+          <td>平和島</td><td>8R</td>
+          <td>164</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">14.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,480</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">185%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|7880|328" data-p32="1|4400|100|7880|179">
+          <td>平和島</td><td>9R</td>
+          <td>164</td>
+          <td style="font-weight:bold"><span style="color:#78909c">78.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|4360|545" data-p8="1|800|100|4360|545" data-p14="1|1500|100|4360|291" data-p20="1|2400|100|4360|182" data-p32="1|4400|200|8720|198">
+          <td>平和島</td><td>10R</td>
+          <td>136</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">43.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥4,360</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">545%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|2840|189" data-p20="1|2400|100|2840|118" data-p32="1|4400|100|2840|65">
+          <td>平和島</td><td>11R</td>
+          <td>132</td>
+          <td style="font-weight:bold"><span style="color:#78909c">28.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2120|265" data-p8="1|800|100|2120|265" data-p14="1|1500|100|2120|141" data-p20="1|2400|100|2120|88" data-p32="1|4400|200|4240|96">
+          <td>平和島</td><td>12R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">21.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,120</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">265%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1340|168" data-p8="1|800|100|1340|168" data-p14="1|1500|100|1340|89" data-p20="1|2400|200|2680|112" data-p32="1|4400|300|4020|91">
+          <td>浜名湖</td><td>1R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">13.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,340</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">168%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>浜名湖</td><td>2R</td>
+          <td>643</td>
+          <td style="font-weight:bold"><span style="color:#78909c">69.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>浜名湖</td><td>3R</td>
+          <td>314</td>
+          <td style="font-weight:bold"><span style="color:#78909c">210.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2120|265" data-p8="1|800|100|2120|265" data-p14="1|1500|100|2120|141" data-p20="1|2400|100|2120|88" data-p32="1|4400|200|4240|96">
+          <td>浜名湖</td><td>4R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">21.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,120</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">265%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2720|340" data-p8="1|800|100|2720|340" data-p14="1|1500|100|2720|181" data-p20="1|2400|100|2720|113" data-p32="1|4400|200|5440|124">
+          <td>浜名湖</td><td>5R</td>
+          <td>152</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">27.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,720</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">340%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1950|244" data-p8="1|800|100|1950|244" data-p14="1|1500|100|1950|130" data-p20="1|2400|200|3900|162" data-p32="1|4400|300|5850|133">
+          <td>浜名湖</td><td>6R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">19.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,950</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">244%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2300|288" data-p8="1|800|100|2300|288" data-p14="1|1500|100|2300|153" data-p20="1|2400|200|4600|192" data-p32="1|4400|200|4600|105">
+          <td>浜名湖</td><td>7R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">23.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,300</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">288%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|700|88" data-p8="1|800|100|700|88" data-p14="1|1500|100|700|47" data-p20="1|2400|100|700|29" data-p32="1|4400|200|1400|32">
+          <td>浜名湖</td><td>8R</td>
+          <td>142</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥700</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">88%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>浜名湖</td><td>9R</td>
+          <td>451</td>
+          <td style="font-weight:bold"><span style="color:#78909c">83.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|600|75" data-p8="1|800|100|600|75" data-p14="1|1500|100|600|40" data-p20="1|2400|200|1200|50" data-p32="1|4400|300|1800|41">
+          <td>浜名湖</td><td>10R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥600</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">75%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>浜名湖</td><td>11R</td>
+          <td>465</td>
+          <td style="font-weight:bold"><span style="color:#78909c">257.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|830|104" data-p8="1|800|100|830|104" data-p14="1|1500|100|830|55" data-p20="1|2400|100|830|35" data-p32="1|4400|200|1660|38">
+          <td>浜名湖</td><td>12R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥830</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">104%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|960|120" data-p8="1|800|100|960|120" data-p14="1|1500|100|960|64" data-p20="1|2400|200|1920|80" data-p32="1|4400|300|2880|65">
+          <td>蒲郡</td><td>1R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥960</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">120%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|3310|221" data-p20="1|2400|100|3310|138" data-p32="1|4400|100|3310|75">
+          <td>蒲郡</td><td>2R</td>
+          <td>136</td>
+          <td style="font-weight:bold"><span style="color:#78909c">33.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|2620|175" data-p20="1|2400|100|2620|109" data-p32="1|4400|100|2620|60">
+          <td>蒲郡</td><td>3R</td>
+          <td>216</td>
+          <td style="font-weight:bold"><span style="color:#78909c">26.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1560|195" data-p8="1|800|100|1560|195" data-p14="1|1500|100|1560|104" data-p20="1|2400|100|1560|65" data-p32="1|4400|200|3120|71">
+          <td>蒲郡</td><td>4R</td>
+          <td>512</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">15.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,560</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">195%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|1900|43">
+          <td>蒲郡</td><td>5R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">19.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|1480|62" data-p32="1|4400|100|1480|34">
+          <td>蒲郡</td><td>6R</td>
+          <td>314</td>
+          <td style="font-weight:bold"><span style="color:#78909c">14.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>蒲郡</td><td>7R</td>
+          <td>415</td>
+          <td style="font-weight:bold"><span style="color:#78909c">46.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|5850|390" data-p20="1|2400|100|5850|244" data-p32="1|4400|100|5850|133">
+          <td>蒲郡</td><td>8R</td>
+          <td>152</td>
+          <td style="font-weight:bold"><span style="color:#78909c">58.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|820|102" data-p8="1|800|100|820|102" data-p14="1|1500|100|820|55" data-p20="1|2400|200|1640|68" data-p32="1|4400|200|1640|37">
+          <td>蒲郡</td><td>9R</td>
+          <td>142</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥820</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">102%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|780|98" data-p8="1|800|100|780|98" data-p14="1|1500|100|780|52" data-p20="1|2400|100|780|32" data-p32="1|4400|200|1560|35">
+          <td>蒲郡</td><td>10R</td>
+          <td>146</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥780</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">98%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|560|37" data-p20="1|2400|100|560|23" data-p32="1|4400|100|560|13">
+          <td>蒲郡</td><td>11R</td>
+          <td>142</td>
+          <td style="font-weight:bold"><span style="color:#78909c">5.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3810|476" data-p8="1|800|100|3810|476" data-p14="1|1500|100|3810|254" data-p20="1|2400|100|3810|159" data-p32="1|4400|200|7620|173">
+          <td>蒲郡</td><td>12R</td>
+          <td>126</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">38.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,810</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">476%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>1R</td>
+          <td>345</td>
+          <td style="font-weight:bold"><span style="color:#78909c">42.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>2R</td>
+          <td>312</td>
+          <td style="font-weight:bold"><span style="color:#78909c">14.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2470|309" data-p8="1|800|100|2470|309" data-p14="1|1500|100|2470|165" data-p20="1|2400|100|2470|103" data-p32="1|4400|200|4940|112">
+          <td>常滑</td><td>3R</td>
+          <td>165</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">24.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,470</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">309%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|670|84" data-p8="1|800|100|670|84" data-p14="1|1500|100|670|45" data-p20="1|2400|100|670|28" data-p32="1|4400|200|1340|30">
+          <td>常滑</td><td>4R</td>
+          <td>162</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥670</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">84%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>5R</td>
+          <td>451</td>
+          <td style="font-weight:bold"><span style="color:#78909c">394.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>6R</td>
+          <td>526</td>
+          <td style="font-weight:bold"><span style="color:#78909c">171.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>7R</td>
+          <td>456</td>
+          <td style="font-weight:bold"><span style="color:#78909c">59.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>8R</td>
+          <td>614</td>
+          <td style="font-weight:bold"><span style="color:#78909c">99.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|5380|359" data-p20="1|2400|100|5380|224" data-p32="1|4400|100|5380|122">
+          <td>常滑</td><td>9R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#78909c">53.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>常滑</td><td>10R</td>
+          <td>314</td>
+          <td style="font-weight:bold"><span style="color:#78909c">34.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1420|178" data-p8="1|800|100|1420|178" data-p14="1|1500|100|1420|95" data-p20="1|2400|100|1420|59" data-p32="1|4400|200|2840|65">
+          <td>常滑</td><td>11R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">14.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,420</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">178%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|450|56" data-p8="1|800|100|450|56" data-p14="1|1500|200|900|60" data-p20="1|2400|200|900|38" data-p32="1|4400|400|1800|41">
+          <td>常滑</td><td>12R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">4.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥450</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">56%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|400|50" data-p8="1|800|100|400|50" data-p14="1|1500|100|400|27" data-p20="1|2400|200|800|33" data-p32="1|4400|300|1200|27">
+          <td>三国</td><td>1R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">4.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥400</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">50%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>三国</td><td>2R</td>
+          <td>251</td>
+          <td style="font-weight:bold"><span style="color:#78909c">158.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>三国</td><td>3R</td>
+          <td>413</td>
+          <td style="font-weight:bold"><span style="color:#78909c">56.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3110|389" data-p8="1|800|100|3110|389" data-p14="1|1500|100|3110|207" data-p20="1|2400|200|6220|259" data-p32="1|4400|300|9330|212">
+          <td>三国</td><td>4R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">31.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,110</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">389%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|790|99" data-p8="1|800|100|790|99" data-p14="1|1500|100|790|53" data-p20="1|2400|200|1580|66" data-p32="1|4400|300|2370|54">
+          <td>三国</td><td>5R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.9倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥790</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">99%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>三国</td><td>6R</td>
+          <td>315</td>
+          <td style="font-weight:bold"><span style="color:#78909c">60.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|3010|201" data-p20="1|2400|100|3010|125" data-p32="1|4400|100|3010|68">
+          <td>三国</td><td>7R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#78909c">30.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1590|199" data-p8="1|800|100|1590|199" data-p14="1|1500|200|3180|212" data-p20="1|2400|200|3180|132" data-p32="1|4400|400|6360|145">
+          <td>三国</td><td>8R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">15.9倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,590</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">199%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>三国</td><td>9R</td>
+          <td>456</td>
+          <td style="font-weight:bold"><span style="color:#78909c">131.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>三国</td><td>10R</td>
+          <td>342</td>
+          <td style="font-weight:bold"><span style="color:#78909c">99.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|720|90" data-p8="1|800|100|720|90" data-p14="1|1500|200|1440|96" data-p20="1|2400|200|1440|60" data-p32="1|4400|400|2880|65">
+          <td>三国</td><td>11R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥720</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">90%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|700|88" data-p8="1|800|100|700|88" data-p14="1|1500|100|700|47" data-p20="1|2400|100|700|29" data-p32="1|4400|200|1400|32">
+          <td>三国</td><td>12R</td>
+          <td>132</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥700</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">88%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>住之江</td><td>1R</td>
+          <td>315</td>
+          <td style="font-weight:bold"><span style="color:#78909c">84.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|240|10" data-p32="1|4400|100|240|5">
+          <td>住之江</td><td>2R</td>
+          <td>342</td>
+          <td style="font-weight:bold"><span style="color:#78909c">2.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|10240|233">
+          <td>住之江</td><td>3R</td>
+          <td>241</td>
+          <td style="font-weight:bold"><span style="color:#78909c">102.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>住之江</td><td>4R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">44.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|620|78" data-p8="1|800|100|620|78" data-p14="1|1500|200|1240|83" data-p20="1|2400|200|1240|52" data-p32="1|4400|400|2480|56">
+          <td>住之江</td><td>5R</td>
+          <td>126</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥620</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">78%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|1710|39">
+          <td>住之江</td><td>6R</td>
+          <td>412</td>
+          <td style="font-weight:bold"><span style="color:#78909c">17.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|940|118" data-p8="1|800|100|940|118" data-p14="1|1500|100|940|63" data-p20="1|2400|200|1880|78" data-p32="1|4400|300|2820|64">
+          <td>住之江</td><td>7R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥940</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">118%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|1380|57" data-p32="1|4400|100|1380|31">
+          <td>住之江</td><td>8R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">13.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|810|101" data-p8="1|800|100|810|101" data-p14="1|1500|100|810|54" data-p20="1|2400|200|1620|68" data-p32="1|4400|300|2430|55">
+          <td>住之江</td><td>9R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥810</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">101%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>住之江</td><td>10R</td>
+          <td>413</td>
+          <td style="font-weight:bold"><span style="color:#78909c">31.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>住之江</td><td>11R</td>
+          <td>543</td>
+          <td style="font-weight:bold"><span style="color:#78909c">754.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|680|85" data-p8="1|800|100|680|85" data-p14="1|1500|200|1360|91" data-p20="1|2400|200|1360|57" data-p32="1|4400|400|2720|62">
+          <td>住之江</td><td>12R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥680</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">85%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2800|350" data-p8="1|800|100|2800|350" data-p14="1|1500|100|2800|187" data-p20="1|2400|100|2800|117" data-p32="1|4400|200|5600|127">
+          <td>尼崎</td><td>1R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">28.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,800</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">350%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|13880|578" data-p32="1|4400|100|13880|315">
+          <td>尼崎</td><td>2R</td>
+          <td>243</td>
+          <td style="font-weight:bold"><span style="color:#78909c">138.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|6410|427" data-p20="1|2400|100|6410|267" data-p32="1|4400|100|6410|146">
+          <td>尼崎</td><td>3R</td>
+          <td>164</td>
+          <td style="font-weight:bold"><span style="color:#78909c">64.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|900|112" data-p8="1|800|100|900|112" data-p14="1|1500|100|900|60" data-p20="1|2400|100|900|38" data-p32="1|4400|200|1800|41">
+          <td>尼崎</td><td>4R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥900</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">112%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1130|141" data-p8="1|800|100|1130|141" data-p14="1|1500|200|2260|151" data-p20="1|2400|200|2260|94" data-p32="1|4400|400|4520|103">
+          <td>尼崎</td><td>5R</td>
+          <td>145</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">11.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,130</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">141%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|8010|534" data-p20="1|2400|100|8010|334" data-p32="1|4400|100|8010|182">
+          <td>尼崎</td><td>6R</td>
+          <td>156</td>
+          <td style="font-weight:bold"><span style="color:#78909c">80.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|700|88" data-p8="1|800|100|700|88" data-p14="1|1500|100|700|47" data-p20="1|2400|200|1400|58" data-p32="1|4400|300|2100|48">
+          <td>尼崎</td><td>7R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥700</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">88%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|2660|111" data-p32="1|4400|100|2660|60">
+          <td>尼崎</td><td>8R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#78909c">26.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1430|179" data-p8="1|800|100|1430|179" data-p14="1|1500|100|1430|95" data-p20="1|2400|200|2860|119" data-p32="1|4400|300|4290|98">
+          <td>尼崎</td><td>9R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">14.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,430</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">179%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|750|94" data-p8="1|800|100|750|94" data-p14="1|1500|100|750|50" data-p20="1|2400|200|1500|62" data-p32="1|4400|300|2250|51">
+          <td>尼崎</td><td>10R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">7.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥750</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">94%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|920|115" data-p8="1|800|100|920|115" data-p14="1|1500|100|920|61" data-p20="1|2400|200|1840|77" data-p32="1|4400|300|2760|63">
+          <td>尼崎</td><td>11R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥920</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">115%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|600|75" data-p8="1|800|100|600|75" data-p14="1|1500|200|1200|80" data-p20="1|2400|200|1200|50" data-p32="1|4400|400|2400|55">
+          <td>尼崎</td><td>12R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥600</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">75%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|530|66" data-p8="1|800|100|530|66" data-p14="1|1500|200|1060|71" data-p20="1|2400|200|1060|44" data-p32="1|4400|400|2120|48">
+          <td>宮島</td><td>1R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">5.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥530</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">66%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|960|22">
+          <td>宮島</td><td>2R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#78909c">9.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2110|264" data-p8="1|800|100|2110|264" data-p14="1|1500|100|2110|141" data-p20="1|2400|200|4220|176" data-p32="1|4400|300|6330|144">
+          <td>宮島</td><td>3R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">21.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,110</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">264%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|860|108" data-p8="1|800|100|860|108" data-p14="1|1500|100|860|57" data-p20="1|2400|200|1720|72" data-p32="1|4400|300|2580|59">
+          <td>宮島</td><td>4R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥860</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">108%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>宮島</td><td>5R</td>
+          <td>513</td>
+          <td style="font-weight:bold"><span style="color:#78909c">33.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|7500|938" data-p8="1|800|100|7500|938" data-p14="1|1500|100|7500|500" data-p20="1|2400|100|7500|312" data-p32="1|4400|200|15000|341">
+          <td>宮島</td><td>6R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">75.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥7,500</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">938%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>宮島</td><td>7R</td>
+          <td>534</td>
+          <td style="font-weight:bold"><span style="color:#78909c">101.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3060|382" data-p8="1|800|100|3060|382" data-p14="1|1500|100|3060|204" data-p20="1|2400|100|3060|127" data-p32="1|4400|200|6120|139">
+          <td>宮島</td><td>8R</td>
+          <td>165</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">30.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,060</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">382%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|1820|41">
+          <td>宮島</td><td>9R</td>
+          <td>352</td>
+          <td style="font-weight:bold"><span style="color:#78909c">18.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|970|65" data-p20="1|2400|100|970|40" data-p32="1|4400|100|970|22">
+          <td>宮島</td><td>10R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#78909c">9.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>宮島</td><td>11R</td>
+          <td>452</td>
+          <td style="font-weight:bold"><span style="color:#78909c">162.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|700|29" data-p32="1|4400|100|700|16">
+          <td>宮島</td><td>12R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#78909c">7.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|7700|321" data-p32="1|4400|100|7700|175">
+          <td>下関</td><td>1R</td>
+          <td>146</td>
+          <td style="font-weight:bold"><span style="color:#78909c">77.0倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|2020|46">
+          <td>下関</td><td>2R</td>
+          <td>236</td>
+          <td style="font-weight:bold"><span style="color:#78909c">20.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|3230|135" data-p32="1|4400|100|3230|73">
+          <td>下関</td><td>3R</td>
+          <td>314</td>
+          <td style="font-weight:bold"><span style="color:#78909c">32.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1570|196" data-p8="1|800|100|1570|196" data-p14="1|1500|100|1570|105" data-p20="1|2400|200|3140|131" data-p32="1|4400|300|4710|107">
+          <td>下関</td><td>4R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">15.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,570</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">196%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|440|55" data-p8="1|800|100|440|55" data-p14="1|1500|100|440|29" data-p20="1|2400|200|880|37" data-p32="1|4400|300|1320|30">
+          <td>下関</td><td>5R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">4.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥440</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">55%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|860|108" data-p8="1|800|100|860|108" data-p14="1|1500|100|860|57" data-p20="1|2400|200|1720|72" data-p32="1|4400|300|2580|59">
+          <td>下関</td><td>6R</td>
+          <td>142</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥860</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">108%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3520|440" data-p8="1|800|100|3520|440" data-p14="1|1500|100|3520|235" data-p20="1|2400|100|3520|147" data-p32="1|4400|200|7040|160">
+          <td>下関</td><td>7R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">35.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,520</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">440%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|710|47" data-p20="1|2400|100|710|30" data-p32="1|4400|100|710|16">
+          <td>下関</td><td>8R</td>
+          <td>143</td>
+          <td style="font-weight:bold"><span style="color:#78909c">7.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|580|72" data-p8="1|800|100|580|72" data-p14="1|1500|200|1160|77" data-p20="1|2400|200|1160|48" data-p32="1|4400|400|2320|53">
+          <td>下関</td><td>9R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">5.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥580</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">72%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|4040|269" data-p20="1|2400|100|4040|168" data-p32="1|4400|100|4040|92">
+          <td>下関</td><td>10R</td>
+          <td>125</td>
+          <td style="font-weight:bold"><span style="color:#78909c">40.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>下関</td><td>11R</td>
+          <td>231</td>
+          <td style="font-weight:bold"><span style="color:#78909c">63.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|610|76" data-p8="1|800|100|610|76" data-p14="1|1500|100|610|41" data-p20="1|2400|200|1220|51" data-p32="1|4400|300|1830|42">
+          <td>下関</td><td>12R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">6.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥610</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">76%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|930|116" data-p8="1|800|100|930|116" data-p14="1|1500|100|930|62" data-p20="1|2400|200|1860|78" data-p32="1|4400|300|2790|63">
+          <td>芦屋</td><td>1R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥930</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">116%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1940|242" data-p8="1|800|100|1940|242" data-p14="1|1500|100|1940|129" data-p20="1|2400|100|1940|81" data-p32="1|4400|200|3880|88">
+          <td>芦屋</td><td>2R</td>
+          <td>145</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">19.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,940</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">242%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|35820|814">
+          <td>芦屋</td><td>3R</td>
+          <td>245</td>
+          <td style="font-weight:bold"><span style="color:#78909c">358.2倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|910|61" data-p20="1|2400|100|910|38" data-p32="1|4400|100|910|21">
+          <td>芦屋</td><td>4R</td>
+          <td>132</td>
+          <td style="font-weight:bold"><span style="color:#78909c">9.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>芦屋</td><td>5R</td>
+          <td>651</td>
+          <td style="font-weight:bold"><span style="color:#78909c">152.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1780|222" data-p8="1|800|100|1780|222" data-p14="1|1500|100|1780|119" data-p20="1|2400|200|3560|148" data-p32="1|4400|200|3560|81">
+          <td>芦屋</td><td>6R</td>
+          <td>235</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">17.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,780</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">222%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1150|144" data-p8="1|800|100|1150|144" data-p14="1|1500|100|1150|77" data-p20="1|2400|100|1150|48" data-p32="1|4400|200|2300|52">
+          <td>芦屋</td><td>7R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">11.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,150</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">144%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>芦屋</td><td>8R</td>
+          <td>546</td>
+          <td style="font-weight:bold"><span style="color:#78909c">56.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|4710|589" data-p8="1|800|100|4710|589" data-p14="1|1500|100|4710|314" data-p20="1|2400|100|4710|196" data-p32="1|4400|200|9420|214">
+          <td>芦屋</td><td>9R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">47.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥4,710</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">589%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|16360|372">
+          <td>芦屋</td><td>10R</td>
+          <td>245</td>
+          <td style="font-weight:bold"><span style="color:#78909c">163.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1670|209" data-p8="1|800|100|1670|209" data-p14="1|1500|100|1670|111" data-p20="1|2400|100|1670|70" data-p32="1|4400|200|3340|76">
+          <td>芦屋</td><td>11R</td>
+          <td>143</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">16.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,670</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">209%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|530|66" data-p8="1|800|100|530|66" data-p14="1|1500|100|530|35" data-p20="1|2400|200|1060|44" data-p32="1|4400|300|1590|36">
+          <td>芦屋</td><td>12R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">5.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥530</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">66%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1020|127" data-p8="1|800|100|1020|127" data-p14="1|1500|100|1020|68" data-p20="1|2400|200|2040|85" data-p32="1|4400|200|2040|46">
+          <td>福岡</td><td>1R</td>
+          <td>145</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">10.2倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,020</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">127%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1350|169" data-p8="1|800|100|1350|169" data-p14="1|1500|100|1350|90" data-p20="1|2400|200|2700|112" data-p32="1|4400|200|2700|61">
+          <td>福岡</td><td>2R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">13.5倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,350</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">169%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|2110|48">
+          <td>福岡</td><td>3R</td>
+          <td>346</td>
+          <td style="font-weight:bold"><span style="color:#78909c">21.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1670|209" data-p8="1|800|100|1670|209" data-p14="1|1500|100|1670|111" data-p20="1|2400|100|1670|70" data-p32="1|4400|200|3340|76">
+          <td>福岡</td><td>4R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">16.7倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,670</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">209%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|910|114" data-p8="1|800|100|910|114" data-p14="1|1500|100|910|61" data-p20="1|2400|100|910|38" data-p32="1|4400|200|1820|41">
+          <td>福岡</td><td>5R</td>
+          <td>214</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥910</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">114%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|1370|31">
+          <td>福岡</td><td>6R</td>
+          <td>213</td>
+          <td style="font-weight:bold"><span style="color:#78909c">13.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|3850|257" data-p20="1|2400|100|3850|160" data-p32="1|4400|100|3850|88">
+          <td>福岡</td><td>7R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#78909c">38.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|3360|140" data-p32="1|4400|100|3360|76">
+          <td>福岡</td><td>8R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">33.6倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|560|70" data-p8="1|800|100|560|70" data-p14="1|1500|100|560|37" data-p20="1|2400|200|1120|47" data-p32="1|4400|300|1680|38">
+          <td>福岡</td><td>9R</td>
+          <td>134</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">5.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥560</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ff9800">70%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1190|79" data-p20="1|2400|100|1190|50" data-p32="1|4400|100|1190|27">
+          <td>福岡</td><td>10R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#78909c">11.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1970|131" data-p20="1|2400|100|1970|82" data-p32="1|4400|100|1970|45">
+          <td>福岡</td><td>11R</td>
+          <td>154</td>
+          <td style="font-weight:bold"><span style="color:#78909c">19.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>福岡</td><td>12R</td>
+          <td>615</td>
+          <td style="font-weight:bold"><span style="color:#78909c">424.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3060|382" data-p8="1|800|100|3060|382" data-p14="1|1500|100|3060|204" data-p20="1|2400|100|3060|127" data-p32="1|4400|200|6120|139">
+          <td>唐津</td><td>1R</td>
+          <td>145</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">30.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,060</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">382%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|5250|219" data-p32="1|4400|100|5250|119">
+          <td>唐津</td><td>2R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#78909c">52.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="1|4400|100|4730|108">
+          <td>唐津</td><td>3R</td>
+          <td>215</td>
+          <td style="font-weight:bold"><span style="color:#78909c">47.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1940|242" data-p8="1|800|100|1940|242" data-p14="1|1500|100|1940|129" data-p20="1|2400|100|1940|81" data-p32="1|4400|200|3880|88">
+          <td>唐津</td><td>4R</td>
+          <td>153</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">19.4倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,940</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">242%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>唐津</td><td>5R</td>
+          <td>461</td>
+          <td style="font-weight:bold"><span style="color:#78909c">94.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>唐津</td><td>6R</td>
+          <td>613</td>
+          <td style="font-weight:bold"><span style="color:#78909c">45.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|3040|127" data-p32="1|4400|100|3040|69">
+          <td>唐津</td><td>7R</td>
+          <td>416</td>
+          <td style="font-weight:bold"><span style="color:#78909c">30.4倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|910|114" data-p8="1|800|100|910|114" data-p14="1|1500|200|1820|121" data-p20="1|2400|200|1820|76" data-p32="1|4400|400|3640|83">
+          <td>唐津</td><td>8R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.1倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥910</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">114%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1030|69" data-p20="1|2400|100|1030|43" data-p32="1|4400|100|1030|23">
+          <td>唐津</td><td>9R</td>
+          <td>162</td>
+          <td style="font-weight:bold"><span style="color:#78909c">10.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-o">💣大穴勝負</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|3830|479" data-p8="1|800|100|3830|479" data-p14="1|1500|100|3830|255" data-p20="1|2400|100|3830|160" data-p32="1|4400|200|7660|174">
+          <td>唐津</td><td>10R</td>
+          <td>135</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">38.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥3,830</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">479%</span></td>
+          <td></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|260|32" data-p8="1|800|100|260|32" data-p14="1|1500|100|260|17" data-p20="1|2400|200|520|22" data-p32="1|4400|300|780|18">
+          <td>唐津</td><td>11R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">2.6倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥260</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">32%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="0|2400|0|0|0" data-p32="0|4400|0|0|0">
+          <td>唐津</td><td>12R</td>
+          <td>312</td>
+          <td style="font-weight:bold"><span style="color:#78909c">71.9倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|1430|60" data-p32="1|4400|100|1430|32">
+          <td>大村</td><td>1R</td>
+          <td>215</td>
+          <td style="font-weight:bold"><span style="color:#78909c">14.3倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|2390|299" data-p8="1|800|100|2390|299" data-p14="1|1500|100|2390|159" data-p20="1|2400|100|2390|100" data-p32="1|4400|200|4780|109">
+          <td>大村</td><td>2R</td>
+          <td>132</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">23.9倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥2,390</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">299%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|2650|110" data-p32="1|4400|100|2650|60">
+          <td>大村</td><td>3R</td>
+          <td>143</td>
+          <td style="font-weight:bold"><span style="color:#78909c">26.5倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1210|81" data-p20="1|2400|100|1210|50" data-p32="1|4400|100|1210|28">
+          <td>大村</td><td>4R</td>
+          <td>136</td>
+          <td style="font-weight:bold"><span style="color:#78909c">12.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|1900|238" data-p8="1|800|100|1900|238" data-p14="1|1500|100|1900|127" data-p20="1|2400|100|1900|79" data-p32="1|4400|200|3800|86">
+          <td>大村</td><td>5R</td>
+          <td>352</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">19.0倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥1,900</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">238%</span></td>
+          <td></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|1780|74" data-p32="1|4400|100|1780|40">
+          <td>大村</td><td>6R</td>
+          <td>415</td>
+          <td style="font-weight:bold"><span style="color:#78909c">17.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|1470|61" data-p32="1|4400|100|1470|33">
+          <td>大村</td><td>7R</td>
+          <td>234</td>
+          <td style="font-weight:bold"><span style="color:#78909c">14.7倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="0|1500|0|0|0" data-p20="1|2400|100|2780|116" data-p32="1|4400|100|2780|63">
+          <td>大村</td><td>8R</td>
+          <td>312</td>
+          <td style="font-weight:bold"><span style="color:#78909c">27.8倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="" data-row-cls="" data-p0="0|800|0|0|0" data-p8="0|800|0|0|0" data-p14="1|1500|100|1310|87" data-p20="1|2400|100|1310|55" data-p32="1|4400|100|1310|30">
+          <td>大村</td><td>9R</td>
+          <td>315</td>
+          <td style="font-weight:bold"><span style="color:#78909c">13.1倍</span></td>
+          <td class="c-hit"><span class="batsu">✗</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">-</td>
+          <td class="c-ret" style="font-weight:bold">-</td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">0%</span></td>
+          <td><span class="tier-badge tier-m">📈妙味帯</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|890|111" data-p8="1|800|100|890|111" data-p14="1|1500|100|890|59" data-p20="1|2400|100|890|37" data-p32="1|4400|200|1780|40">
+          <td>大村</td><td>10R</td>
+          <td>152</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">8.9倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥890</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">111%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|930|116" data-p8="1|800|100|930|116" data-p14="1|1500|200|1860|124" data-p20="1|2400|200|1860|78" data-p32="1|4400|400|3720|85">
+          <td>大村</td><td>11R</td>
+          <td>124</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">9.3倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥930</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#4caf50">116%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr><tr class="hit-row" data-row-cls="hit-row" data-p0="1|800|100|480|60" data-p8="1|800|100|480|60" data-p14="1|1500|100|480|32" data-p20="1|2400|200|960|40" data-p32="1|4400|300|1440|33">
+          <td>大村</td><td>12R</td>
+          <td>123</td>
+          <td style="font-weight:bold"><span style="color:#4caf50">4.8倍</span></td>
+          <td class="c-hit"><span class="hanamaru hanamaru-big">🌸本命</span></td>
+          <td class="c-bet">¥800</td>
+          <td class="c-unit">¥100</td>
+          <td class="c-ret" style="font-weight:bold"><span style="color:#81c784">¥480</span></td>
+          <td class="c-roi" style="font-weight:bold"><span style="color:#ef5350">60%</span></td>
+          <td><span class="tier-badge tier-a">🎯厳選</span></td>
+        </tr>
+</table>
+</div>
+<script>
+/* 点数別の結果表示（2026-08-11 田中さん「予想と同じように、点数別で結果が見れるようにしてよ」）
+   予想を変えるものではない。同じ予想を「上位何点まで買った場合か」で採点し直して見せる。
+   0 = AIおすすめ（AIがレースごとに決めた点数。R10の正本）。
+   各行は data-p0 / data-p8 / data-p14 ... に
+   「的中|掛金|配分|回収金額|回収率%」を持っている。 */
+(function(){
+  var SUM = {"0": {"n": 192, "hit": 87, "bet": 153600, "ret": 155320, "gami": null, "fh": 87, "fc": 31, "fo": 29}, "8": {"n": 192, "hit": 87, "bet": 153600, "ret": 155320, "gami": 26, "fh": 87, "fc": 0, "fo": 0}, "14": {"n": 192, "hit": 110, "bet": 288000, "ret": 231650, "gami": 55, "fh": 87, "fc": 23, "fo": 0}, "20": {"n": 192, "hit": 130, "bet": 460800, "ret": 346260, "gami": 76, "fh": 87, "fc": 31, "fo": 12}, "32": {"n": 192, "hit": 147, "bet": 844800, "ret": 668890, "gami": 103, "fh": 87, "fc": 31, "fo": 29}};
+  var KEY = 'boatrace_result_pts';
+  function yen(v){ return '¥' + v.toLocaleString(); }
+  function roiColor(v){ return v >= 100 ? '#4caf50' : (v >= 70 ? '#ff9800' : '#ef5350'); }
+
+  function apply(pts){
+    var rows = document.querySelectorAll('table.detail tr[data-row-cls]');
+    rows.forEach(function(tr){
+      var raw = tr.getAttribute('data-p' + pts);
+      var hitCell = tr.querySelector('.c-hit');
+      if (!raw) {
+        // その点数では採点できないレース（順位つき32点を保存する前に凍結されたもの）
+        tr.classList.add('pts-na');
+        tr.className = 'pts-na';
+        ['.c-bet', '.c-unit', '.c-ret', '.c-roi'].forEach(function(s){
+          var c = tr.querySelector(s); if (c) c.textContent = '—';
+        });
+        return;
+      }
+      var p = raw.split('|');
+      var hit = p[0] === '1', bet = +p[1], unit = +p[2], ret = +p[3], roi = +p[4];
+      tr.classList.remove('pts-na');
+      // 的中の色分けは「AIおすすめ」のときだけ本命/中穴/大穴を区別できる。
+      // 点数を指定したときは枠の区別が無いので、当たり外れだけを示す。
+      tr.className = (pts === '0') ? (tr.getAttribute('data-row-cls') || '')
+                                   : (hit ? 'hit-row' : '');
+      if (hitCell && pts !== '0') hitCell.innerHTML = hit
+        ? '<span class="hanamaru hanamaru-big">🌸的中</span>'
+        : '<span class="batsu">✗</span>';
+      if (hitCell && pts === '0') hitCell.innerHTML = hitCell.getAttribute('data-orig') || hitCell.innerHTML;
+      var set = function(s, t, col){
+        var c = tr.querySelector(s); if (!c) return;
+        c.innerHTML = col ? '<span style="color:' + col + '">' + t + '</span>' : t;
+      };
+      set('.c-bet', bet ? yen(bet) : '-');
+      set('.c-unit', unit ? yen(unit) : '-');
+      set('.c-ret', ret ? yen(ret) : '-', ret ? '#81c784' : null);
+      set('.c-roi', bet ? (roi + '%') : '-', bet ? roiColor(roi) : null);
+    });
+    // 2026-08-13: 場別成績も選んだ点数に連動させる。
+    // 旧実装は「その日に表示した点数の的中」を24点×100円で割った固定値で、
+    // 点数を変えても動かず、**32点を選んで当たっていても的中に数えられなかった**。
+    document.querySelectorAll('table tr[data-venue]').forEach(function(tr){
+      var raw = tr.getAttribute('data-v' + pts);
+      var n = tr.querySelector('.v-n'), h = tr.querySelector('.v-hit'), o = tr.querySelector('.v-roi');
+      if (!raw) {                      // その点数では採点できない日
+        if (n) n.textContent = '—';
+        if (h) h.textContent = '—';
+        if (o) { o.textContent = '—'; o.style.color = '#78909c'; }
+        tr.style.opacity = '0.4';
+        return;
+      }
+      tr.style.opacity = '';
+      var p = raw.split('|'), R = +p[0], hit = +p[1], bet = +p[2], ret = +p[3];
+      var roi = bet ? (ret / bet * 100) : 0;
+      if (n) n.textContent = R + 'R';
+      if (h) h.textContent = hit + '/' + R + ' = ' + (R ? (hit / R * 100).toFixed(1) : '0.0') + '%';
+      if (o) { o.textContent = roi.toFixed(1) + '%'; o.style.color = roiColor(roi); }
+    });
+
+    var s = SUM[pts];
+    if (s) {
+      var roi = s.bet ? (s.ret / s.bet * 100) : 0;
+      document.getElementById('sum-hit').textContent = (s.n ? (s.hit / s.n * 100).toFixed(1) : '0.0') + '%';
+      document.getElementById('sum-hit-sub').textContent = s.hit + '/' + s.n + 'R';
+      document.getElementById('sum-hit-label').textContent =
+        (pts === '0') ? '合計的中率' : ('合計的中率（' + pts + '点）');
+      var re = document.getElementById('sum-roi');
+      re.textContent = roi.toFixed(1) + '%';
+      re.style.color = roiColor(roi);
+      document.getElementById('sum-roi-sub').textContent = yen(s.ret) + ' / ' + yen(s.bet);
+      var _fc = document.getElementById('card-chuana'), _fo = document.getElementById('card-oana');
+      var _fcs = document.getElementById('card-chuana-sub'), _fos = document.getElementById('card-oana-sub');
+      var _fh = document.getElementById('card-honmei'), _fhs = document.getElementById('card-honmei-sub');
+      if (_fc && s.fc !== undefined) {
+        _fh.textContent = (s.n ? (s.fh / s.n * 100).toFixed(1) : '0.0') + '%';
+        _fhs.textContent = s.fh + '/' + s.n + 'R';
+        _fc.textContent = (s.n ? (s.fc / s.n * 100).toFixed(1) : '0.0') + '%';
+        _fcs.textContent = s.fc + '/' + s.n + 'R';
+        _fo.textContent = (s.n ? (s.fo / s.n * 100).toFixed(1) : '0.0') + '%';
+        _fos.textContent = s.fo + '/' + s.n + 'R';
+      }
+      document.getElementById('sum-roi-note').textContent =
+        (pts === '0') ? '全レース・AIおすすめの点数'
+        : ('上位' + pts + '点で買った場合（' + s.n + 'R）'
+           + (s.gami !== null ? '　トリガミ ' + (s.hit ? Math.round(s.gami / s.hit * 100) : 0) + '%' : ''));
+    }
+    document.querySelectorAll('.pts-btn').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-pts') === pts);
+    });
+    var note = document.getElementById('pts-note');
+    if (note) note.textContent = (pts === '0')
+      ? 'AIがレースごとに決めた点数での成績'
+      : ('同じ予想を上位' + pts + '点まで買った場合の成績');
+    try { localStorage.setItem(KEY, pts); } catch(e){}
+  }
+
+  function init(){
+    document.querySelectorAll('table.detail .c-hit').forEach(function(c){
+      c.setAttribute('data-orig', c.innerHTML);   // 「AIおすすめ」に戻すため元の表示を控える
+    });
+    document.querySelectorAll('.pts-btn').forEach(function(b){
+      b.addEventListener('click', function(){ apply(b.getAttribute('data-pts')); });
+    });
+    var saved = '0';
+    try { var v = localStorage.getItem(KEY); if (v && SUM[v]) saved = v; } catch(e){}
+    apply(saved);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body></html>
