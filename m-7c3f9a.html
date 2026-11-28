@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script>(function(){var m=location.hash.match(/k=([A-Za-z0-9_-]+)/);if(m){try{localStorage.setItem('k:owner',m[1]);}catch(e){}}})();</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJCJQE1C4"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RSJCJQE1C4');</script>
+<head><script async src="https://www.googletagmanager.com/gtag/js?id=G-RSJCJQE1C4"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RSJCJQE1C4');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ボートレースAI予想</title>
@@ -319,7 +319,7 @@ setInterval(function () {
   if (_todayStr() !== BUILD_DATE) location.reload();
 }, 60000);
 const TENTATIVE = [];   // R27: 仮予想（展示前）状態の日付
-const PARTIAL   = ["20261018", "20261124", "20261128"];     // R27: 本予想への移行中の日付
+const PARTIAL   = ["20261018", "20261124"];     // R27: 本予想への移行中の日付
 
 // R32(2026-07-10最終版田中さん指示): SNS投稿ごとに参照日付を URL に埋め込む方式
 // ?today=1  → システム日付基準(投稿翌日に見ると別日に飛ぶ問題があったので廃止)
@@ -434,8 +434,8 @@ function render() {
     if (mode === 'predict') {
       // 2026-08-29: today.html は**無料版（上位3点）**になったので、そこは読まない。
       // 日別の予想は推測できないフォルダに移した（deploy_site.py の owner_dir）。
-      // フォルダ名はデプロイ時に dd37384c730b8de6 が置換される。
-      path = 'reports/dd37384c730b8de6/' + current + '.html';
+      // フォルダ名はデプロイ時に __OWNER_PRED_DIR__ が置換される。
+      path = 'reports/__OWNER_PRED_DIR__/' + current + '.html';
     } else {
       path = 'reports/result_' + current + '.html';
     }
